@@ -129,7 +129,11 @@ namespace GradeBook.GradeBooks
                     gpa = 0;
                     break;
             }
-            return 0;
+
+            if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
+                gpa++;
+
+            return gpa;
         }
 
         public virtual void CalculateStatistics()
